@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GramaDo — Gastronomia Rústica Contemporânea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════ NAV ═══════════════════ -->
+    <nav id="navbar">
+      <div class="nav-logo">
+        <span class="logo-mark">GMD</span>
+        <span class="logo-name">GraMaDo</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#hero">Início</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button
+        class="nav-reserva-btn"
+        onclick="
+          document
+            .getElementById('reservas')
+            .scrollIntoView({ behavior: 'smooth' })
+        "
+      >
+        Reservar Mesa
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero" onclick="closeMobile()">Início</a>
+      <a href="#menu" onclick="closeMobile()">Menu</a>
+      <a href="#reservas" onclick="closeMobile()">Reservas</a>
+      <a href="#galeria" onclick="closeMobile()">Galeria</a>
+      <a href="#contato" onclick="closeMobile()">Contato</a>
+    </div>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section id="hero">
+      <div class="hero-media">
+        <!-- Fallback gradient background + animated overlay -->
+        <div class="hero-video-overlay"></div>
+        <div class="hero-fire-particles" id="fireParticles"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-tag reveal">— Gastronomia Rústica Contemporânea —</p>
+        <h1 class="hero-title reveal delay-1">
+          A essência do<br /><em>fogo</em> no seu prato.
+        </h1>
+        <p class="hero-sub reveal delay-2">
+          Ingredientes locais. Técnicas ancestrais. Sabores únicos.
+        </p>
+        <div class="hero-ctas reveal delay-3">
+          <button
+            class="btn-primary"
+            onclick="
+              document
+                .getElementById('menu')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Ver o Menu
+          </button>
+          <button
+            class="btn-ghost"
+            onclick="
+              document
+                .getElementById('reservas')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+          >
+            Fazer Reserva
+          </button>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ MENU DIGITAL ═══════════════════ -->
+    <section id="menu">
+      <div class="section-header">
+        <p class="section-tag">— O Cardápio —</p>
+        <h2 class="section-title">Menu Digital</h2>
+        <p class="section-sub">
+          Ingredientes colhidos da terra, preparados com fogo e paixão.
+        </p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="menu-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="entrada">Entradas</button>
+        <button class="filter-btn" data-filter="prato">Pratos</button>
+        <button class="filter-btn" data-filter="drink">Drinks</button>
+        <button class="filter-btn filter-vegan" data-filter="vegan">
+          🌿 Veganos
+        </button>
+      </div>
+
+      <!-- Grid de itens -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- ENTRADAS -->
+        <div class="menu-card" data-cat="entrada" data-vegan="false">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?w=400&q=80&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Burrata da Fazenda</h3>
+              <span class="price">R$ 48</span>
+            </div>
+            <p>
+              Burrata cremosa, tomates heirloom, azeite de ervas e flor de sal.
+            </p>
+            <div class="allergens">
+              <span class="allergen" title="Glúten">🌾</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-cat="entrada" data-vegan="true">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Ceviche Tropical</h3>
+              <span class="price">R$ 38</span>
+            </div>
+            <p>
+              Palmito pupunha marinado em leite de coco, jalapeño e coentro
+              fresco.
+            </p>
+            <div class="allergens">
+              <span class="vegan-badge">🌿 Vegano</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-cat="entrada" data-vegan="false">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://plus.unsplash.com/premium_photo-1664478272084-532c1bfebd25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29zdGVsYXxlbnwwfHwwfHx8MA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Costela Crocante</h3>
+              <span class="price">R$ 62</span>
+            </div>
+            <p>
+              Costela de cordeiro confitada 12h, chips de mandioca e chimichurri
+              defumado.
+            </p>
+            <div class="allergens"></div>
+          </div>
+        </div>
+
+        <!-- PRATOS -->
+        <div class="menu-card" data-cat="prato" data-vegan="false">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1587711461107-548538a3094b?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Salmão da Serra</h3>
+              <span class="price">R$ 89</span>
+            </div>
+            <p>
+              Salmão selado em brasa, purê de aipim trufado, aspargos grelhados
+              e beurre blanc de maracujá.
+            </p>
+            <div class="allergens"></div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-cat="prato" data-vegan="true">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1637361874063-e5e415d7bcf7?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Risoto da Terra</h3>
+              <span class="price">R$ 72</span>
+            </div>
+            <p>
+              Risoto de cogumelos silvestres, trufa negra ralada, azeite verde e
+              ervas aromáticas.
+            </p>
+            <div class="allergens">
+              <span class="vegan-badge">🌿 Vegano</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card destaque" data-cat="prato" data-vegan="false">
+          <div class="destaque-badge">⭐ Chef</div>
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1600891964092-4316c288032e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGljYW5oYXxlbnwwfHwwfHx8MA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Picanha na Brasa</h3>
+              <span class="price">R$ 128</span>
+            </div>
+            <p>
+              Picanha prime maturada 21 dias, braseada no fogo de lenha, com
+              farofa de tutano e vinagrete de ervas.
+            </p>
+            <div class="allergens">
+              <span class="allergen" title="Glúten">🌾</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-card" data-cat="drink" data-vegan="true">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1651877546976-ab61bf889b68?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TmVncm9uaXxlbnwwfHwwfHx8MA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Negroni Defumado</h3>
+              <span class="price">R$ 42</span>
+            </div>
+            <p>
+              Gin artesanal, Campari, vermute rosso com defumação na hora de
+              servir.
+            </p>
+            <div class="allergens">
+              <span class="vegan-badge">🌿 Vegano</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card" data-cat="drink" data-vegan="true">
+          <div
+            class="menu-card-img"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1644809818228-e29aa5aa8151?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Q2FpcGlyaW5oYXxlbnwwfHwwfHx8MA%3D%3D&quot;);
+            "
+          ></div>
+          <div class="menu-card-body">
+            <div class="menu-card-header">
+              <h3>Caipirinha da Serra</h3>
+              <span class="price">R$ 34</span>
+            </div>
+            <p>
+              Cachaça envelhecida, maracujá da fazenda, manjericão fresco e
+              pimenta-rosa.
+            </p>
+            <div class="allergens">
+              <span class="vegan-badge">🌿 Vegano</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="menu-note">
+        * Informe ao garçom sobre alergias ou restrições alimentares. Glúten ·
+        Lácteos · Frutos do Mar · Nozes
+      </p>
+    </section>
+
+    <!-- ═══════════════════ RESERVAS ═══════════════════ -->
+    <section id="reservas">
+      <div class="reservas-inner">
+        <div class="reservas-text">
+          <p class="section-tag">— Reserve sua Experiência —</p>
+          <h2 class="section-title light">
+            Uma mesa<br /><em>especial</em><br />para você.
+          </h2>
+          <p class="reservas-desc">
+            Cada detalhe é pensado para criar uma memória gastronômica
+            inesquecível. Reserve com antecedência e garanta a melhor
+            experiência.
+          </p>
+          <div class="reservas-info">
+            <div class="info-item">
+              <div>
+                <strong>Horários</strong>
+                <span>Ter–Dom: 12h–15h | 19h–23h</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div>
+                <strong>Telefone</strong>
+                <span>(11) 99999-8888</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="reserva-form" id="reservaForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nome">Nome completo *</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome"
+                autocomplete="name"
+              />
+              <span class="form-error" id="nomeError"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                autocomplete="email"
+              />
+              <span class="form-error" id="emailError"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="data">Data *</label>
+              <input type="date" id="data" name="data" />
+              <span class="form-error" id="dataError"></span>
+            </div>
+            <div class="form-group">
+              <label for="hora">Horário *</label>
+              <select id="hora" name="hora">
+                <option value="">Selecione</option>
+                <option>12:00</option>
+                <option>12:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+                <option>14:00</option>
+                <option>19:00</option>
+                <option>19:30</option>
+                <option>20:00</option>
+                <option>20:30</option>
+                <option>21:00</option>
+                <option>21:30</option>
+                <option>22:00</option>
+              </select>
+              <span class="form-error" id="horaError"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pessoas">Número de pessoas *</label>
+            <div class="pessoas-selector">
+              <button type="button" class="pessoas-btn" id="pessoasMinus">
+                −
+              </button>
+              <span id="pessoasNum">2</span>
+              <button type="button" class="pessoas-btn" id="pessoasPlus">
+                +
+              </button>
+              <input type="hidden" id="pessoas" name="pessoas" value="2" />
+            </div>
+            <span class="form-error" id="pessoasError"></span>
+          </div>
+          <div class="form-group">
+            <label for="obs"
+              >Observações (alergias, aniversários, ocasiões especiais)</label
+            >
+            <textarea
+              id="obs"
+              name="obs"
+              rows="3"
+              placeholder="Conte-nos mais sobre sua visita..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submitBtn">
+            <span id="btnText">Confirmar Reserva</span>
+            <span id="btnLoader" class="btn-loader hidden">⌛</span>
+          </button>
+          <div class="form-success hidden" id="formSuccess">
+            ✅ Reserva recebida! Em breve entraremos em contato para confirmar.
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ GALERIA ═══════════════════ -->
+    <section id="galeria">
+      <div class="section-header">
+        <p class="section-tag">— Atmosfera —</p>
+        <h2 class="section-title">Galeria</h2>
+        <p class="section-sub">
+          O ambiente, os pratos e os momentos que fazem de cada visita uma
+          experiência única.
+        </p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item tall" data-index="0" onclick="openLightbox(0)">
+          <img
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
+            alt="Ambiente do restaurante"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Ambiente</span></div>
+        </div>
+        <div class="gallery-item" data-index="1" onclick="openLightbox(1)">
+          <img
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&q=80"
+            alt="Prato principal"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Pratos</span></div>
+        </div>
+        <div class="gallery-item" data-index="2" onclick="openLightbox(2)">
+          <img
+            src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=600&q=80"
+            alt="Bar e drinks"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Bar</span></div>
+        </div>
+        <div class="gallery-item wide" data-index="3" onclick="openLightbox(3)">
+          <img
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1000&q=80"
+            alt="Cozinha aberta"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Cozinha Aberta</span></div>
+        </div>
+        <div class="gallery-item" data-index="4" onclick="openLightbox(4)">
+          <img
+            src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80"
+            alt="Detalhe do prato"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Detalhes</span></div>
+        </div>
+        <div class="gallery-item" data-index="5" onclick="openLightbox(5)">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80"
+            alt="Salão"
+            loading="lazy"
+          />
+          <div class="gallery-overlay"><span>Salão</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+      <button class="lightbox-prev" onclick="prevLightbox(event)">‹</button>
+      <button class="lightbox-next" onclick="nextLightbox(event)">›</button>
+      <div class="lightbox-inner">
+        <img id="lightboxImg" src="" alt="" />
+        <p id="lightboxCaption"></p>
+      </div>
+    </div>
+
+    <!-- ═══════════════════ footer ═══════════════════ -->
+    <footer id="contato">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-mark">GMD</span>
+            <span class="logo-name">GraMaDo </span>
+          </div>
+          <p>
+            Gastronomia rústica contemporânea com ingredientes locais e a
+            essência do fogo em cada prato.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="5" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="TikTok">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="WhatsApp">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Horários</h4>
+          <ul>
+            <li><span>Segunda</span><span>Fechado</span></li>
+            <li><span>Terça–Sexta</span><span>12h–15h | 19h–23h</span></li>
+            <li><span>Sábado</span><span>12h–16h | 19h–00h</span></li>
+            <li><span>Domingo</span><span>12h–16h</span></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Localização</h4>
+          <address>
+            Rua das Pedras, 240<br />
+            Vila Gastronômica<br />
+            São Paulo – SP, 01310-000
+          </address>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.0975906082044!2d-46.65389162385956!3d-23.563382161463835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c7f481fd9f%3A0x9982b744f6f75b08!2sAv.%20Paulista%2C%20São%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localização GramaDo"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul class="contact-list">
+            <li>(11) 99999-8888</li>
+            <li>contato@gramado.com.br</li>
+            <li>Acessível</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 GramaDo. Todos os direitos reservados.</p>
+        <p class="footer-credit">Desenvolvido por Ferrão Studios</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
