@@ -2,7 +2,7 @@
 
 O **GraMaDo** é um projeto de landing page para um restaurante de gastronomia rústica contemporânea. O foco principal foi o desenvolvimento de uma interface imersiva, utilizando uma paleta de cores que remete aos elementos naturais (terra e fogo) e uma tipografia elegante para transmitir sofisticação.
 
-🔗 **[Acesse o projeto online aqui](https://gra-ma-do.vercel.app/)**
+🔗 **[Acesse o projeto online aqui](https://gramado.vercel.app/)**
 
 ---
 
